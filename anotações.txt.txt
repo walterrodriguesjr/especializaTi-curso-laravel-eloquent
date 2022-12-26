@@ -1,0 +1,23 @@
+1-intro 
+
+
+1-o que é o eloquent ORM do laravel 
+-serve para gerenciar bancos de dados relacionais de maneira simples(querys)
+-está ligado diretamente ao uso de models 
+-possibilita fazer filtros 
+-possibilita trabalhar com APIs 
+-utiliza o querybuilder 
+
+2-instalar e configurar o laravel com docker 
+-instalado o meu template de laravel com docker 
+-configurado o .env
+-criado o banco de dados do curso
+-após instalar, removido o versionamento anterior do git
+    rm -rf .git/
+-acessar o campo do artisa: 
+    docker-compose exec app bash
+-alterar o timezone dentro de app.php 
+    'timezone' => 'America/Sao_Paulo',
+
+3-versionar projeto laravel com Git e armazenar no github 
+-
