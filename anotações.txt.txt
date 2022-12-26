@@ -20,4 +20,24 @@
     'timezone' => 'America/Sao_Paulo',
 
 3-versionar projeto laravel com Git e armazenar no github 
--
+-criado novo repositório no github
+-git init iniciar um novo projeto 
+-adicionar somente os arquivos permitidos(erro gerado em arquivos docker ignorados)
+    git * 
+
+4-models e migrations no laravel 
+-model = tabela, onde são configurados as colunas da tabela em questão, onde tmb é feito os relacionamentos 
+-migration = onde são configuradas as tabelas que serão enviadas para o banco, com suas respectivas colunas 
+-criada uma migration de teste com nome Post, juntamente com o respectivo arquivo de migration 
+    php artisan make:model Post -m
+
+5-conexão com banco de dados no laravel 
+-explicação do .env em relação ao banco de dados que será criado 
+    tipo de banco, HOST, PORT, DATABASE etc... 
+-o arquivo database.php armazena os dados de configuração de banco de dados 
+
+
+02-migrations e ferramentas 
+
+1-comandos de migration no laravel e mysql workbench 
+-INICIAR
