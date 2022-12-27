@@ -40,4 +40,62 @@
 02-migrations e ferramentas 
 
 1-comandos de migration no laravel e mysql workbench 
--INICIAR
+-conectando com um gerenciador de banco de dados(no caso o dbeaver)
+-rodado as migration 
+    php artisan migrate 
+
+2-instalar o telescope e o debugbar 
+-ferramentas para debugar o banco de dados
+-telescope = serve para monitorar as ações referentes ao banco de dados
+-para usar, basta digitar: /telescope   após o endereço no browser
+    composer require laravel/telescope
+    php artisan telescope:install
+    rodar a migration do criada pelo telescope 
+        php artisan migrate
+-debugbar = instala o devtools específico do laravel, mostrando routes, queries e models em uso
+    composer require barryvdh/laravel-debugbar --dev
+
+3-opções de colunas de migrations no laravel 
+-explicado a estrutura e sintaxe usado nas migrations 
+
+4-chave estrangeira no laravel 
+-relacionamento onToMay - um para muitos, a tabela mais fraca ganha a FK 
+-mostrado 2 exemplos de se criar um relacionamento entre 2 colunas de tableas diferentes 
+
+5-laravel-criar colunas novas em tabelas sem perder os dados 
+-instalado composer require doctrine/dbal
+    para alterar as estruturas de tabelas 
+-criada uma nova migration para inserir uma nova coluna na tabela users 
+    php artisan make:migration ass_collumn_date_users
+    em seguida, configurada a nova migration com a coluna date
+    rodada a migration 
+
+
+03-iniciando com o eloquent 
+
+1-personalização de models no laravel 
+-explicado as possibilidades de fugir do padrão do laravel em models e migrations, 
+    podendo ser personalizada(não recomendável)
+
+2-opções de consultas no eloquent do laravel 
+-criação de usuarios fake, usando a o UserFactory.php 
+    utiliza o tinker: 
+        php artisan tinker
+        dentro dele: \App\Models\User::factory()->count(100)->create();
+-ao chamar a class User, pode finalizar com: 
+     all() que trará tudo;
+     get(), que possibilita especificação usando where() e muitos outros. ex: where('id', id), o where() possibilita fazer vários tipos de filtros
+     first() traz o primeiro encontrado, irá trazer o primeiro da lista, se não houver mais especificações
+     find() já espera no parametro o valor do id buscado
+     findOrFail() espera no parametro o id do dado, caso não exista, retorna automaticamente uma exception de erro 404 na tela (not found)
+-resumindo, estes métodos do laravel eloquent, servem para fazer query de maneira mais enxutas, não sendo necessário fazer: "'select' * 'from' 'users'", por exemplo
+
+3-laravel eloquent filtrar registros 
+-usando o where() e dentro de seu parâmetro, é especificado como deve ser filtrado a busca, sempre finalizando com get(), first() etc...
+-quando a busca do where() é específica(ex:ver nos 'name', palavras que comecem com 'a', pode se usar o 'LIKE' como comparação)
+-é possível encadear mais de uma query seguida, usando em seguida o orWhere() fazendo uma nova query, na mesma busca 
+-é possível finalizar com toSql() para imprimir na tela a query por extenso para verificação 
+-o whereIn(), espera como parametro, o nome da coluna, e em seguida, um array de dados referentes 
+-é possível usar uma função de callBack dentro de uma query 
+-
+
