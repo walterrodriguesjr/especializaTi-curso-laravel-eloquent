@@ -97,5 +97,19 @@
 -é possível finalizar com toSql() para imprimir na tela a query por extenso para verificação 
 -o whereIn(), espera como parametro, o nome da coluna, e em seguida, um array de dados referentes 
 -é possível usar uma função de callBack dentro de uma query 
--
+
+4-laravel eloquent-paginação
+-paginate() = método que permite paginar o a busca de dados referente a model em questão, por default pagina os itens de 15 em 15, porem, em seu parametro, é possível especificar o número de itens por página 
+
+5-laravel eloquent-ordenação 
+-orderBy() = método que permite ordenar a busca e consequentemente o retorno dos dados, no parametro é possível
+     especificar por qual dado do objeto será ordenado, e em seguida, de qual maneira, crescente ou descrescente 
+        ex: orderBy('name', 'desc')
+
+6-laravel eloquent-inserir registro no banco 
+-save() = método do eloquent para, após estar com os dados a serem salvos prontos dentro do objeto, envia os dados para o banco 
+-foi feito um exemplo para inserir de forma mais manual 
+
+
+
 

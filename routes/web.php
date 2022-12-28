@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -14,19 +15,43 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//EXEMPLOS USANDO MÉTODOS DE FILTROS DO ELOQUENT-AULA-3-MODULO-3
+//EXEMPLOS USANDO MÉTODOS DE INSERÇÃO(MANUAL) DO ELOQUENT-AULA-6-MODULO-3
+/* Route::get('/insert', function(Post $post) {
+    $post->user_id = 1;
+    $post->title = 'Primeiro Post';
+    $post->body = 'Conteúdo do post';
+    $post->date = date('Y-m-d');
+    $post->save();
+    $posts = Post::get();
+    return $posts;
+}); */
+
+//EXEMPLOS USANDO MÉTODOS DE ORDENAÇÃO DO ELOQUENT-AULA-5-MODULO-3
+/* Route::get('/orderby', function() {
+    $users = User::orderBy('name', 'desc')->get();
+
+    return $users;
+}); */
+
+//EXEMPLOS USANDO MÉTODOS DE PAGINAÇÃO DO ELOQUENT-AULA-4-MODULO-3
+/* Route::get('/pagination', function() {
+    $users = User::paginate(2);
+
+    return $users;
+}); */
+
 Route::get('/where', function(User $user) {
     $filter = 'm';
     //$users = $user->where('email', '=', 'lilly21@example.org')->first();
     //$users = $user->where('name', 'LIKE', "%{$filter}%")->get();
     //$users = $user->where('name', 'LIKE', "%{$filter}%")->orWhere('name', 'Lyda')->get();
-    $users = $user->where('name', 'LIKE', "%{$filter}%")->orWhere(function($query) {
+    /* $users = $user->where('name', 'LIKE', "%{$filter}%")->orWhere(function($query) {
         $query->where('name', '=', 'Maximo');
-    })->get();
+    })->get(); */
 
-    echo "<pre>";
+    /* echo "<pre>";
     var_dump($users);
-    echo "</pre>";
+    echo "</pre>"; */
 });
 
 //EXEMPLOS USANDO MÉTODOS DE CONSULTAS DO ELOQUENT-AULA-2-MODULO-3
