@@ -110,6 +110,68 @@
 -save() = método do eloquent para, após estar com os dados a serem salvos prontos dentro do objeto, envia os dados para o banco 
 -foi feito um exemplo para inserir de forma mais manual 
 
+7-laravel eloquent-Mass Assignment
+-create() = método do eloquent que também serve para enviar dados para o banco, porem, em seu parâmetro, ele 
+    espera um array com a atribuição dos dados a serem salvo, isso se o $fillable da model estiver configurada;
+    não necessita uso do save(), pois o próprio create() faz o trabalho de submeter. 
+-$fillable[] = serve para que, na model da class em questão, diga quais campos podem ser trabalhados 
 
+8-laravel eloquent-atualizar registro no banco 
+-após localizar qual linha ta tabela será alterada, find(id), é feita a atribuição dos novos dados no array, dentro do próprio método update()
+-é possivel também, fazendo da mesma maneira, porém dentro do updateOrCreate() onde tendo 2 arrays, se já existir com o respectivo dado chave, atualiza, senão, ele cria 
+
+9-laravel eloquent-deletar registros do banco 
+-delete() = após identificar qual linha será deletada, find(id), utiliza-se o método do eloquent delete()
+
+10-laravel eloquent-soft deleting 
+-na referida tabela, cria-se a coluna softDeletes(), através da sua migration 
+-na model da referida tabela, usa a trait de softdelete, use SoftDeletes;
+-a partir disso, tudo que for deletado desta tabela, ainda continuará na tabela, com a data que foi deletado, porém não será usado nas requisições comuns 
+
+
+04-Accessors e Mutators 
+
+1-laravel eloquent-criando um Accessor 
+-é um função criada direta na model da class em questão, que, em seu nome, especifica qual atributo será alterado, 
+    esperando o parametro $value, e no corpo da função, retorna algum método PHP, junto com o parametro. 
+    O nome da função espera que seja relacionado a algum atributo desta model 
+-é possivel centralizar os métodos Accessor todos em um diretório próprio, ficando global para qualquer model 
+    desde que na model, seja chamado o arquivo php do Accessor 
+
+2-laravel eloquent-Casting 
+-serve pra que, determinado atributo da tabela, seja especificado que o retorno vai ser no formato especificado no $cast, dentro da model da class em questão 
+
+3-laravel eloquent-criando um Mutator 
+-método similar ao Accessor, porém, este serve para modificar o dado antes que ele chegue ao banco, quando for salvo 
+
+
+05-avançando com eloquent 
+
+1-laravel eloquent-Local Scope 
+-possibilita criar funções na model, relacionadas a filtros, e que podem ser utilizadas no controller da respectiva model, 
+    não sendo necessário cria-la varias vezes na lógica do controller, apenas a chamando.
+    muito usada em querys.
+
+2-laravel eloquent-Anonumous Global Scopes 
+-ok, não é a forma mais recomendada de se fazer uma função global
+
+3-laravel eloquent-Global Scopes
+-a vantagem de ter um método global(em uma classe própria), é poder ser reaproveitado em todas as models
+
+4-laravel eloquent-Observers 
+-serve para capturar eventos realizados em model, após o evento, pode realizar alguma ação
+-cria-se uma classe para o observer da referida classe, a qual cria os métodos que irá monitorar 
+    cada ação relativa a referida model 
+    php artisan make:observer PostObserver --model=Post 
+-precisa o observer e a model, serem vinculados em EventServiceProvider.php 
+
+5-laravel eloquent-eventos 
+-ok 
+
+
+05-Factories 
+
+1-laravel Factories e Seeders 
+-usados por exemplo, para criar dados fake no banco para teste, junto com o Tinker 
 
 
